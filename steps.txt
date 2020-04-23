@@ -1,0 +1,13 @@
+$ composer create-project laravel/laravel bringfare
+
+$ cd bringfare
+
+$ composer require laravelcollective/html
+
+add links in config/app.php
+
+$ php artisan make:auth
+
+
+
+
