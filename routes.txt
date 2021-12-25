@@ -1,0 +1,104 @@
+$ php artisan route:list
++--------+----------+------------------------------+--------------------------+-----------------------------------------------------------------------------+-----------------+
+| Domain | Method   | URI                          | Name                     | Action                                                                      | Middleware      |
++--------+----------+------------------------------+--------------------------+-----------------------------------------------------------------------------+-----------------+
+|        | GET|HEAD | /                            | index                    | Closure                                                                     | web             |
+|        | GET|HEAD | admin                        |                          | Closure                                                                     | web             |
+|        | GET|HEAD | admin/account                | admin.account            | App\Http\Controllers\AdminController@getAccount                             | web,auth:admin  |
+|        | POST     | admin/account/update         | admin.account.submit     | App\Http\Controllers\AdminController@postAccount                            | web,auth:admin  |
+|        | GET|HEAD | admin/bid/delete/{id}        | admin.bid-delete         | App\Http\Controllers\AdminController@getBidDelete                           | web,auth:admin  |
+|        | GET|HEAD | admin/categories             | admin.categories         | App\Http\Controllers\AdminController@getCategories                          | web,auth:admin  |
+|        | POST     | admin/category               | admin.update-category    | App\Http\Controllers\AdminController@postCategory                           | web,auth:admin  |
+|        | GET|HEAD | admin/category/{id}          | admin.category           | App\Http\Controllers\AdminController@getCategory                            | web,auth:admin  |
+|        | GET|HEAD | admin/dashboard              | admin.dashboard          | App\Http\Controllers\AdminController@index                                  | web,auth:admin  |
+|        | GET|HEAD | admin/ledger/delete/{id}     | admin.ledger-delete      | App\Http\Controllers\AdminController@getLedgerDelete                        | web,auth:admin  |
+|        | GET|HEAD | admin/ledger/{id}            | admin.ledger             | App\Http\Controllers\AdminController@getLedger                              | web,auth:admin  |
+|        | GET|HEAD | admin/login                  | admin.login              | App\Http\Controllers\Auth\AdminLoginController@showLoginForm                | web,guest:admin |
+|        | POST     | admin/login                  | admin.login.submit       | App\Http\Controllers\Auth\AdminLoginController@login                        | web,guest:admin |
+|        | GET|HEAD | admin/logout                 | admin.logout             | App\Http\Controllers\Auth\AdminLoginController@logout                       | web             |
+|        | POST     | admin/message/reply          | admin.reply-message      | App\Http\Controllers\AdminController@postMessageReply                       | web,auth:admin  |
+|        | GET|HEAD | admin/message/{id}           | admin.message            | App\Http\Controllers\AdminController@getMessage                             | web,auth:admin  |
+|        | GET|HEAD | admin/messages               | admin.messages           | App\Http\Controllers\AdminController@getMessages                            | web,auth:admin  |
+|        | POST     | admin/page                   | admin.updatepage         | App\Http\Controllers\AdminController@postPage                               | web,auth:admin  |
+|        | GET|HEAD | admin/page/{id}              | admin.page               | App\Http\Controllers\AdminController@getPage                                | web,auth:admin  |
+|        | GET|HEAD | admin/pages                  | admin.pages              | App\Http\Controllers\AdminController@getPages                               | web,auth:admin  |
+|        | POST     | admin/password/email         | admin.password.email     | App\Http\Controllers\Auth\AdminForgotPasswordController@sendResetLinkEmail  | web,guest:admin |
+|        | POST     | admin/password/reset         |                          | App\Http\Controllers\Auth\AdminResetPasswordController@reset                | web,guest:admin |
+|        | GET|HEAD | admin/password/reset         | admin.password.request   | App\Http\Controllers\Auth\AdminForgotPasswordController@showLinkRequestForm | web,guest:admin |
+|        | GET|HEAD | admin/password/reset/{token} | admin.password.reset     | App\Http\Controllers\Auth\AdminResetPasswordController@showResetForm        | web,guest:admin |
+|        | GET|HEAD | admin/product/status/{id}    | admin.product-status     | App\Http\Controllers\AdminController@getProductStatus                       | web,auth:admin  |
+|        | GET|HEAD | admin/product/suspend/{id}   | admin.product-suspend    | App\Http\Controllers\AdminController@getProductSuspend                      | web,auth:admin  |
+|        | GET|HEAD | admin/product/{id}           | admin.product            | App\Http\Controllers\AdminController@getProduct                             | web,auth:admin  |
+|        | GET|HEAD | admin/products               | admin.products           | App\Http\Controllers\AdminController@getProducts                            | web,auth:admin  |
+|        | GET|HEAD | admin/reports                | admin.reports            | App\Http\Controllers\AdminController@getReports                             | web,auth:admin  |
+|        | POST     | admin/update-ledger          | admin.update-ledger      | App\Http\Controllers\AdminController@postLedger                             | web,auth:admin  |
+|        | GET|HEAD | admin/user/status/{id}       | admin.user-status        | App\Http\Controllers\AdminController@getUserStatus                          | web,auth:admin  |
+|        | GET|HEAD | admin/user/suspend/{id}      | admin.user-suspend       | App\Http\Controllers\AdminController@getUserSuspend                         | web,auth:admin  |
+|        | GET|HEAD | admin/user/{id}              | admin.user               | App\Http\Controllers\AdminController@getUser                                | web,auth:admin  |
+|        | GET|HEAD | admin/users                  | admin.users              | App\Http\Controllers\AdminController@getUsers                               | web,auth:admin  |
+|        | GET|HEAD | api/user                     |                          | Closure                                                                     | api,auth:api    |
+|        | GET|HEAD | auth/{provider}              |                          | App\Http\Controllers\Auth\RegisterController@redirectToProvider             | web,guest       |
+|        | GET|HEAD | auth/{provider}/callback     |                          | App\Http\Controllers\Auth\RegisterController@handleProviderCallback         | web,guest       |
+|        | GET|HEAD | category/{id}                | search-category          | App\Http\Controllers\HomeController@getSearchCategory                       | web,auth        |
+|        | GET|HEAD | contact                      | contact                  | App\Http\Controllers\UserController@getContact                              | web,auth        |
+|        | GET|HEAD | dashboard                    | dashboard                | App\Http\Controllers\UserController@getHome                                 | web,auth        |
+|        | GET|HEAD | error                        | error                    | App\Http\Controllers\HomeController@getErrorPage                            | web,auth        |
+|        | GET|HEAD | home                         | home                     | App\Http\Controllers\HomeController@index                                   | web             |
+|        | POST     | login                        |                          | App\Http\Controllers\Auth\LoginController@login                             | web,guest       |
+|        | GET|HEAD | login                        | login                    | App\Http\Controllers\Auth\LoginController@showLoginForm                     | web,guest       |
+|        | POST     | logout                       | logout                   | App\Http\Controllers\Auth\LoginController@logout                            | web             |
+|        | POST     | message/reply                | reply-message            | App\Http\Controllers\UserController@postMessageReply                        | web,auth        |
+|        | GET|HEAD | message/{id}                 | message                  | App\Http\Controllers\UserController@getMessage                              | web,auth        |
+|        | GET|HEAD | messages                     | messages                 | App\Http\Controllers\UserController@getMessages                             | web,auth        |
+|        | GET|HEAD | page/{slug}                  | page                     | App\Http\Controllers\UserController@getPage                                 | web             |
+|        | POST     | password/email               | password.email           | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail       | web,guest       |
+|        | GET|HEAD | password/reset               | password.request         | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm      | web,guest       |
+|        | POST     | password/reset               |                          | App\Http\Controllers\Auth\ResetPasswordController@reset                     | web,guest       |
+|        | GET|HEAD | password/reset/{token}       | password.reset           | App\Http\Controllers\Auth\ResetPasswordController@showResetForm             | web,guest       |
+|        | GET|HEAD | product/{id?}                | request                  | App\Http\Controllers\HomeController@request                                 | web             |
+|        | POST     | products/add                 | add-request              | App\Http\Controllers\UserController@postRequest                             | web,auth        |
+|        | GET|HEAD | products/create              | create-request           | App\Http\Controllers\UserController@getRequest                              | web,auth        |
+|        | GET|HEAD | products/create-product/{id} | create-request-duplicate | App\Http\Controllers\UserController@getRequestDuplicate                     | web,auth        |
+|        | GET|HEAD | register                     | register                 | App\Http\Controllers\Auth\RegisterController@showRegistrationForm           | web,guest       |
+|        | POST     | register                     |                          | App\Http\Controllers\Auth\RegisterController@register                       | web,guest       |
+|        | GET|HEAD | register/verify/{token}      |                          | App\Http\Controllers\Auth\RegisterController@verify                         | web,guest       |
+|        | POST     | report                       | post-report              | App\Http\Controllers\UserController@postReport                              | web,auth        |
+|        | GET|HEAD | report/{id}                  | report-request           | App\Http\Controllers\UserController@getReport1                              | web,auth        |
+|        | GET|HEAD | report/{id}/{id2}            | report-bid               | App\Http\Controllers\UserController@getReport2                              | web,auth        |
+|        | GET|HEAD | report/{id}/{id2}/{id3}      | report-comment           | App\Http\Controllers\UserController@getReport3                              | web,auth        |
+|        | POST     | search                       | post-search              | App\Http\Controllers\HomeController@postSearch                              | web             |
+|        | GET|HEAD | search                       | search                   | App\Http\Controllers\HomeController@search                                  | web             |
+|        | POST     | search-trips                 | post-search-trips        | App\Http\Controllers\HomeController@postSearchTrips                         | web,auth        |
+|        | GET|HEAD | search-trips                 | search-trips             | App\Http\Controllers\HomeController@searchTrips                             | web,auth        |
+|        | POST     | send-message                 | post-message             | App\Http\Controllers\UserController@postSendMessage                         | web,auth        |
+|        | GET|HEAD | test                         | test                     | App\Http\Controllers\UserController@test                                    | web,auth        |
+|        | GET|HEAD | test2                        | test2                    | App\Http\Controllers\UserController@test2                                   | web,auth        |
+|        | POST     | trips/add                    | add-trip                 | App\Http\Controllers\UserController@postTrip                                | web,auth        |
+|        | GET|HEAD | trips/create                 | create-trip              | App\Http\Controllers\UserController@getTrip                                 | web,auth        |
+|        | POST     | user/add-comment             | post-comment             | App\Http\Controllers\UserController@postAddComment                          | web,auth        |
+|        | POST     | user/add-discuss             | add-discuss              | App\Http\Controllers\UserController@postDiscuss                             | web,auth        |
+|        | GET|HEAD | user/add-rating/{id1}/{id2}  | get-rating               | App\Http\Controllers\UserController@getRating                               | web,auth        |
+|        | GET|HEAD | user/applied                 | applied                  | App\Http\Controllers\UserController@getApplied                              | web,auth        |
+|        | GET|HEAD | user/bids                    | bids                     | App\Http\Controllers\UserController@getBids                                 | web,auth        |
+|        | GET|HEAD | user/discuss/{id}            | discuss                  | App\Http\Controllers\UserController@getDiscuss                              | web,auth        |
+|        | POST     | user/edit-comment            | edit-comment             | App\Http\Controllers\UserController@postAddComment                          | web,auth        |
+|        | GET|HEAD | user/edit-profile            | edit-profile             | App\Http\Controllers\UserController@getEditProfile                          | web,auth        |
+|        | GET|HEAD | user/follow/{id}             | follow                   | App\Http\Controllers\UserController@getFollow                               | web,auth        |
+|        | GET|HEAD | user/inbox                   | inbox                    | App\Http\Controllers\UserController@getInbox                                | web,auth        |
+|        | GET|HEAD | user/notification            | notification             | App\Http\Controllers\UserController@getNotification                         | web,auth        |
+|        | POST     | user/post-rating             | post-rating              | App\Http\Controllers\UserController@postRating                              | web,auth        |
+|        | POST     | user/product/invite          | post-invite-request      | App\Http\Controllers\UserController@postRequestInvite                       | web,auth        |
+|        | GET|HEAD | user/product/invite/{id}     | invite-request           | App\Http\Controllers\UserController@getRequestInvite                        | web,auth        |
+|        | GET|HEAD | user/product/select/{id}     | select-request           | App\Http\Controllers\UserController@getRequestSelect                        | web,auth        |
+|        | GET|HEAD | user/product/{id}            | edit-request             | App\Http\Controllers\UserController@getRequestEdit                          | web,auth        |
+|        | GET|HEAD | user/products                | requests                 | App\Http\Controllers\UserController@getRequests                             | web,auth        |
+|        | GET|HEAD | user/profile/{id?}           | profile                  | App\Http\Controllers\UserController@getProfile                              | web             |
+|        | GET|HEAD | user/settings                | settings                 | App\Http\Controllers\UserController@getSettings                             | web,auth        |
+|        | GET|HEAD | user/trip/{id}               | edit-trip                | App\Http\Controllers\UserController@getTripEdit                             | web,auth        |
+|        | GET|HEAD | user/trips                   | trips                    | App\Http\Controllers\UserController@getTrips                                | web,auth        |
+|        | GET|HEAD | user/unfollow/{id}           | unfollow                 | App\Http\Controllers\UserController@getUnFollow                             | web,auth        |
+|        | POST     | user/update-profile          | update-profile           | App\Http\Controllers\UserController@postEditProfile                         | web,auth        |
+|        | POST     | user/update-status           | bid-status               | App\Http\Controllers\UserController@postUpdateBidStatus                     | web,auth        |
+|        | GET|HEAD | user/wallet                  | wallet                   | App\Http\Controllers\UserController@getWallet                               | web,auth        |
+|        | GET|HEAD | users/logout                 | user.logout              | App\Http\Controllers\Auth\LoginController@userLogout                        | web,guest       |
++--------+----------+------------------------------+--------------------------+-----------------------------------------------------------------------------+-----------------+

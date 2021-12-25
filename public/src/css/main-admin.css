@@ -1,0 +1,90 @@
+/* generic */
+
+.grey-bg {
+    background-color: #f3f5f7;
+}
+
+.dark-bg {
+    background-color: #36474f;
+    color: #fff;
+    padding: 10px 8px;
+
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.p10 {
+    padding: 10px;
+}
+
+.m10 {
+    margin: 10px;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.user-img1 {
+    width: 65px;
+    height: auto;
+    margin-top: -35px;
+    margin-right: 10px;
+}
+
+.user-img2 {
+    width: 40px;
+    height: auto;
+    margin-top: -20px;
+    margin-right: 10px;
+}
+
+.user-img3 {
+    width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    border: 5px solid #ccc;
+}
+
+.separator {
+    border-top: 1px solid #65beb9;
+    margin: 10px 0;
+}
+
+/* Admin */
+.box-tools .input-group-btn {
+    display: block !important;
+}
+
+.messages .message { border: 1px solid #eee; padding: 10px; margin-bottom: 10px; }
